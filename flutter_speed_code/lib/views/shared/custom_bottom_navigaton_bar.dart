@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_code/theme/theme_constants.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({Key key}) : super(key: key);
@@ -12,7 +13,7 @@ class CustomBottomNavBar extends StatelessWidget {
         right: tDefaultPadding * 2,
         bottom: tDefaultPadding,
       ),
-      height: 80,
+      height: 70,
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -24,21 +25,45 @@ class CustomBottomNavBar extends StatelessWidget {
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
-          IconButton(
-            icon: Icon(Icons.access_alarm),
-            onPressed: () {},
-            tooltip: 'Home',
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: tPrimaryColor,
+                    width: 3,
+                  ),
+                ),
+              ),
+              child: IconButton(
+                icon: SvgPicture.asset('assets/icons/flower.svg'),
+                onPressed: () {},
+                tooltip: 'Store',
+                alignment: Alignment.bottomCenter,
+              ),
+            ),
           ),
-          IconButton(
-            icon: Icon(Icons.access_alarm),
-            onPressed: () {},
-            tooltip: 'Home',
+          Expanded(
+            child: Container(
+              child: IconButton(
+                icon: SvgPicture.asset('assets/icons/heart-icon.svg'),
+                onPressed: () {},
+                tooltip: 'Favorites',
+                alignment: Alignment.bottomCenter,
+              ),
+            ),
           ),
-          IconButton(
-            icon: Icon(Icons.access_alarm),
-            onPressed: () {},
-            tooltip: 'Home',
+          Expanded(
+            child: Container(
+              child: IconButton(
+                icon: SvgPicture.asset('assets/icons/user-icon.svg'),
+                onPressed: () {},
+                tooltip: 'Profile',
+                alignment: Alignment.bottomCenter,
+              ),
+            ),
           ),
         ],
       ),

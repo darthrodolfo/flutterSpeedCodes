@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_code/views/home/widgets/featured_plants.dart';
 import 'package:flutter_speed_code/views/home/widgets/header.dart';
+import 'package:flutter_speed_code/views/home/widgets/recommended_plants.dart';
+import 'package:flutter_speed_code/views/home/widgets/section_header.dart';
 
 class CustomBody extends StatelessWidget {
   const CustomBody({Key key}) : super(key: key);
@@ -12,9 +15,11 @@ class CustomBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          HeaderWithSearchBox(
-            size: size,
-          )
+          HeaderWithSearchBox(size: size),
+          SectionHeader(title: 'Recomended', onPressed: () {}),
+          RecommendedPlants(),
+          SectionHeader(title: 'Featured Plants', onPressed: () {}),
+          FeaturedPlants(),
         ],
       ),
     );
