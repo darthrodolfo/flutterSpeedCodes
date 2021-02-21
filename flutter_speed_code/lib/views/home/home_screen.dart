@@ -22,4 +22,14 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+
+  // SliverAppBar customSliverAppBarbuild() {
+  //   return SliverAppBar(
+  //     elevation: 0,
+  //     leading: IconButton(
+  //       icon: SvgPicture.asset('assets/icons/menu.svg'),
+  //       onPressed: () {},
+  //     ),
+  //   );
+  // }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_code/theme/theme_constants.dart';
+import 'package:flutter_speed_code/views/detail/details_screen.dart';
 
 class RecommendedPlants extends StatelessWidget {
   const RecommendedPlants({Key key}) : super(key: key);
@@ -19,8 +20,7 @@ class RecommendedPlants extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  //builder: (context) => DetailsScreen(),
-                  builder: (context) => null,
+                  builder: (context) => DetailsScreen(),
                 ),
               );
             },
@@ -34,7 +34,7 @@ class RecommendedPlants extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => null,
+                  builder: (context) => DetailsScreen(),
                 ),
               );
             },
@@ -44,7 +44,14 @@ class RecommendedPlants extends StatelessWidget {
             title: "Samantha",
             country: "Russia",
             price: 440,
-            onPress: () {},
+            onPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(),
+                ),
+              );
+            },
           ),
         ],
       ),
@@ -71,55 +78,58 @@ class RecommendedPlantCard extends StatelessWidget {
           top: tDefaultPadding / 2,
           bottom: tDefaultPadding * 2.5),
       width: size.width * 0.4,
-      child: Column(
-        children: <Widget>[
-          Image.asset(image),
-          GestureDetector(
-            onTap: onPress,
-            child: Container(
-              padding: EdgeInsets.all(tDefaultPadding / 2),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(10),
-                  bottomRight: Radius.circular(10),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(0, 10),
-                    blurRadius: 50,
-                    color: tPrimaryColor.withOpacity(0.23),
+      child: GestureDetector(
+        onTap: onPress,
+        child: Column(
+          children: <Widget>[
+            Image.asset(image),
+            GestureDetector(
+              onTap: onPress,
+              child: Container(
+                padding: EdgeInsets.all(tDefaultPadding / 2),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(10),
+                    bottomRight: Radius.circular(10),
                   ),
-                ],
-              ),
-              child: Row(
-                children: <Widget>[
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: '$title\n'.toUpperCase(),
-                          style: Theme.of(context).textTheme.button,
-                        ),
-                        TextSpan(
-                          text: '$country\n'.toUpperCase(),
-                          style: TextStyle(
-                            color: tPrimaryColor,
-                          ),
-                        ),
-                      ],
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset(0, 10),
+                      blurRadius: 50,
+                      color: tPrimaryColor.withOpacity(0.23),
                     ),
-                  ),
-                  Spacer(),
-                  Text(
-                    '\$ $price\n',
-                    style: TextStyle(color: tPrimaryColor.withOpacity(0.7)),
-                  )
-                ],
+                  ],
+                ),
+                child: Row(
+                  children: <Widget>[
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: '$title\n'.toUpperCase(),
+                            style: Theme.of(context).textTheme.button,
+                          ),
+                          TextSpan(
+                            text: '$country\n'.toUpperCase(),
+                            style: TextStyle(
+                              color: tPrimaryColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Spacer(),
+                    Text(
+                      '\$ $price\n',
+                      style: TextStyle(color: tPrimaryColor.withOpacity(0.7)),
+                    )
+                  ],
+                ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_code/theme/theme_constants.dart';
+import 'package:flutter_speed_code/views/detail/details_screen.dart';
 
 class FeaturedPlants extends StatelessWidget {
   const FeaturedPlants({Key key}) : super(key: key);
@@ -12,11 +13,25 @@ class FeaturedPlants extends StatelessWidget {
         children: <Widget>[
           FeaturedPlantCard(
             image: 'assets/images/bottom_img_1.png',
-            onPress: () {},
+            onPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(),
+                ),
+              );
+            },
           ),
           FeaturedPlantCard(
             image: 'assets/images/bottom_img_2.png',
-            onPress: () {},
+            onPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(),
+                ),
+              );
+            },
           ),
         ],
       ),

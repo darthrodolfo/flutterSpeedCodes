@@ -67,6 +67,7 @@ class HeaderWithSearchBox extends StatelessWidget {
                   Expanded(
                     child: TextField(
                       autofocus: false,
+                      enabled: false,
                       onChanged: (value) {},
                       style: TextStyle(color: Colors.green[800]),
                       decoration: InputDecoration(
